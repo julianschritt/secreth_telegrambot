@@ -149,6 +149,8 @@ def handle_voting(bot, update):
             answer, game.board.state.nominated_president.name, game.board.state.nominated_chancellor.name), uid,
                               callback.message.message_id)
         log.info("Player %s (%d) voted %s" % (callback.from_user.first_name, uid, answer))
+        bot.send_message(game.cid, "%s registered a vote for President %s and Chancellor %s." % (
+            callback.from_user.first_name, game.board.state.nominated_president.name, game.board.state.nominated_chancellor.name))
         if uid not in game.board.state.last_votes:
             game.board.state.last_votes[uid] = answer
         if len(game.board.state.last_votes) == len(game.player_sequence):
