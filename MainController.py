@@ -51,7 +51,7 @@ def start_round(bot, game):
         game.board.state.nominated_president = game.board.state.chosen_president
         game.board.state.chosen_president = None
     bot.send_message(game.cid,
-                     "The next presidential canditate is %s.\n%s, please nominate a Chancellor in our private chat!" % (
+                     "The next presidential candidate is %s.\n%s, please nominate a Chancellor in our private chat!" % (
                          game.board.state.nominated_president.name, game.board.state.nominated_president.name))
     choose_chancellor(bot, game)
     # --> nominate_chosen_chancellor --> vote --> handle_voting --> count_votes --> voting_aftermath --> draw_policies
